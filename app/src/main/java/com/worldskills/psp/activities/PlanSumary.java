@@ -39,6 +39,7 @@ public class PlanSumary extends AppCompatActivity {
             idProyecto=datos.getInt(Home.KEYID);
         }
 
+        botonAtras=findViewById(R.id.time_salir);
         botonAtras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
