@@ -6,4 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".activities.PlanSumary">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alto_toolbar"
+        android:background="@drawable/fondo_toolbar_degradado"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageButton
+                android:background="@drawable/icon_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/consola"
+                android:textColor="@color/color_letra_titulos"
+                android:textSize="35dp"
+                android:text="TSP/PSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/consola"
+                android:textStyle="bold"
+                android:textColor="@color/color_letra_titulos"
+                android:textSize="15dp"
+                android:text=" Mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_letra_titulos"
+            android:fontFamily="@font/consola"
+            android:text="Project Plan Summary"/>
+
+
+    </LinearLayout>
+
+
+
 </LinearLayout>
