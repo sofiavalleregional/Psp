@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/item_proyecto_fondo"
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -13,11 +14,14 @@
         >
 
         <TextView
+            android:id="@+id/item_proyecto_id"
             android:layout_width="@dimen/tam_circulo_lista"
             android:layout_height="@dimen/tam_circulo_lista"
             android:layout_gravity="center_vertical"
             android:background="@drawable/fondo_circular_degradado_1"
             android:text="1"
+            android:textStyle="bold"
+            android:fontFamily="@font/consola"
             android:gravity="center"
             android:textSize="32dp"
             android:textColor="@android:color/white"
@@ -41,15 +45,20 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/item_proyecto_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="Nombre proyecto"
+                android:textStyle="bold"
+                android:fontFamily="@font/consola"
                 android:textSize="19sp"
                 />
             <TextView
+                android:id="@+id/item_proyecto_tiempo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/consolai"
                 android:layout_gravity="center_vertical"
                 android:text="Tiempo estimado"
                 />
