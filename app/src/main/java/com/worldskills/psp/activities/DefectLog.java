@@ -23,7 +23,7 @@ import java.util.Date;
 public class DefectLog extends AppCompatActivity {
 
     private boolean p1, p2, p3, p4,p5, p6, p7, p8;
-    private int tiempo;
+    private int tiempo, idproyect;
     private String fecha, tipo, removido, inyectada;
     TextView textFecha;
     EditText solucion;
@@ -37,6 +37,9 @@ public class DefectLog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_defect_log);
 
+
+        Bundle bun= getIntent().getExtras();
+        idproyect= bun.getInt(Home.KEYID);
 
         textFecha= findViewById(R.id.defect_date);
         type= findViewById(R.id.defect_spinner);
@@ -57,7 +60,7 @@ public class DefectLog extends AppCompatActivity {
 
     public void iniciodefect(View view) {
         p1=true;
-        SimpleDateFormat formato= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
+        SimpleDateFormat formato= new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         Date date= new Date();
         fecha= formato.format(date);
 
@@ -143,7 +146,7 @@ public class DefectLog extends AppCompatActivity {
 
         if(p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8){
             DataBaseTSP db = new DataBaseTSP(this);
-            db.saveDefecLog(1, tipo, fecha, inyectada, removido, tiempo, solution);
+            db.saveDefecLog(idproyect, tipo, fecha, inyectada, removido, tiempo, solution);
             Button volver =saved.findViewById(R.id.dialog_saved_botton);
 
             volver.setOnClickListener(new View.OnClickListener() {
