@@ -181,7 +181,7 @@ iniciar el defecto"
                 android:background="@drawable/fondo_circular_degradado_1"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textSize="40dp" />
+                android:textSize="18dp" />
 
             <LinearLayout
                 android:layout_marginTop="10dp"
