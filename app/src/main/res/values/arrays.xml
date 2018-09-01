@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <string-array name="fases">
+        <item>PLAN</item>
+        <item>DLD</item>
+        <item>CODE</item>
+        <item>COMPILE</item>
+        <item>UT</item>
+        <item>PM</item>
+
+    </string-array>
+
+    <string-array name="tipos">
+        <item>Documentation</item>
+        <item>Syntax</item>
+        <item>Build</item>
+        <item>Package</item>
+        <item>Assigment</item>
+        <item>Interface</item>
+        <item>Cheking</item>
+        <item>Data</item>
+        <item>Funtion</item>
+        <item>System</item>
+        <item>Environment</item>
+    </string-array>
+</resources>
