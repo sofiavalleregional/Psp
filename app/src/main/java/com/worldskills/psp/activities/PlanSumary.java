@@ -47,7 +47,7 @@ public class PlanSumary extends AppCompatActivity {
         Cursor cursor=db.tablaProyectos(DataBaseTSP.CARGAR_UN_PROYECTO,idProyecto,null,0);
         if (cursor!=null){
             if (cursor.moveToFirst()){
-                cantidad=cursor.getInt(0);
+                cantidad=cursor.getInt(2);
                 Toast.makeText(this, "proyecto"+cantidad, Toast.LENGTH_LONG).show();
             }
         }else{
