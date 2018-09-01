@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:background="@drawable/ic_save" />
+
+    <TextView
+        android:text="Información guardada"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/consola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:id="@+id/dialog_saved_botton"
+        android:layout_width="158dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/redondo_blanco"
+        android:fontFamily="@font/consolab"
+        android:text="Volver a iniciar"
+        android:textSize="16dp" />
+
+</LinearLayout>

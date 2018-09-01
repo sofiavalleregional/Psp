@@ -14,8 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.worldskills.psp.Home;
+
 import com.worldskills.psp.R;
+import com.worldskills.psp.activities.Home;
 import com.worldskills.psp.activities.PlanSumary;
 import com.worldskills.psp.adapters.AdapterInformacion;
 import com.worldskills.psp.db.DataBaseTSP;

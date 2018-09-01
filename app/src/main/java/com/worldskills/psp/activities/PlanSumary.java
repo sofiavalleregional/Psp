@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.worldskills.psp.Home;
+
 import com.worldskills.psp.R;
 import com.worldskills.psp.adapters.AdapterInformacion;
 import com.worldskills.psp.db.DataBaseTSP;

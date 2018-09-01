@@ -1,4 +1,4 @@
-package com.worldskills.psp;
+package com.worldskills.psp.activities;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.worldskills.psp.R;
 import com.worldskills.psp.activities.DefectLog;
 import com.worldskills.psp.activities.PlanSumary;
 import com.worldskills.psp.activities.TimeLog;

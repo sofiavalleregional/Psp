@@ -9,87 +9,241 @@
     tools:context=".activities.DefectLog">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alto_toolbar"
+        android:background="@drawable/fondo_toolbar_degradado"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageButton
+                android:id="@+id/defect_salir"
+                android:background="@drawable/icon_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/consola"
+                android:textColor="@color/color_letra_titulos"
+                android:textSize="35dp"
+                android:text="TSP/PSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/consola"
+                android:textStyle="bold"
+                android:textColor="@color/color_letra_titulos"
+                android:textSize="15dp"
+                android:text=" Mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
 
         <TextView
-            android:hint="Pulsar el boton para iniciar el defecto"
-            android:id="@+id/defect_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_letra_titulos"
+            android:fontFamily="@font/consola"
+            android:text="Defect Log"/>
 
-        <Button
-            android:onClick="iniciodefect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
-
-    <Spinner
-
-        android:id="@+id/defect_spinner"
-        android:entries="@array/tipos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Spinner
-
-        android:id="@+id/defect_spinner_removed"
-        android:entries="@array/fases"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <Spinner
-
-        android:id="@+id/defect_spinner_inject"
-        android:entries="@array/fases"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Chronometer
-        android:textSize="20dp"
-        android:id="@+id/defect_crono"
-        android:layout_width="35dp"
-        android:layout_height="41dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:onClick="fixtime"
-            android:id="@+id/defect_inicio_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:onClick="fixtime"
-            android:id="@+id/defect_parar_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <LinearLayout
+                android:background="@drawable/contenedor"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:onClick="fixtime"
-            android:id="@+id/defect_reinicio_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="15dp"
+                    android:textAlignment="center"
+                    android:hint="Pulsar el boton para
+iniciar el defecto"
+                    android:gravity="center"
+                    android:id="@+id/defect_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-    </LinearLayout>
+                <Button
+                    android:background="@drawable/boton_curva"
+                    android:onClick="iniciodefect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_linea_separador" />
+
+            <TextView
+                android:fontFamily="@font/consolai"
+                android:text="Tipo de defecto"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/defect_spinner"
+                android:layout_width="207dp"
+                android:layout_height="42dp"
+                android:entries="@array/tipos" />
 
 
-    <EditText
-        android:id="@+id/defect_edit"
-        android:layout_width="231dp"
-        android:layout_height="91dp" />
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/color_linea_separador" />
 
-    <Button
-        android:onClick="guardardefecto"
-        android:text="guardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:fontFamily="@font/consolai"
+                android:text="Fase removida"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+
+                android:id="@+id/defect_spinner_removed"
+                android:entries="@array/fases"
+                android:layout_width="207dp"
+                android:layout_height="42dp"/>
+
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/color_linea_separador" />
+
+            <TextView
+                android:fontFamily="@font/consolai"
+                android:text="Fase inyectada"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+
+                android:id="@+id/defect_spinner_inject"
+                android:entries="@array/fases"
+                android:layout_width="207dp"
+                android:layout_height="42dp"/>
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/color_linea_separador" />
+
+            <TextView
+                android:fontFamily="@font/consolai"
+                android:text="Fix time"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Chronometer
+                android:id="@+id/defect_crono"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:background="@drawable/fondo_circular_degradado_1"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="40dp" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/defect_inicio_time"
+                    android:layout_width="60dp"
+                    android:layout_height="63dp"
+                    android:background="@drawable/icon_play"
+                    android:onClick="fixtime" />
+
+                <Button
+                    android:id="@+id/defect_parar_time"
+                    android:layout_width="63dp"
+                    android:layout_height="63dp"
+                    android:background="@drawable/ic_stop"
+                    android:onClick="fixtime" />
+
+                <Button
+                    android:id="@+id/defect_reinicio_time"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_replay"
+                    android:onClick="fixtime" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/color_linea_separador" />
+
+            <EditText
+                android:textAlignment="center"
+                android:hint="Solución"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/contenedor"
+                android:id="@+id/defect_edit"
+                android:layout_width="231dp"
+                android:layout_height="91dp" />
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:fontFamily="@font/consolai"
+                android:textColor="@android:color/white"
+                android:background="@drawable/prueba"
+                android:onClick="guardardefecto"
+                android:text="guardar"
+                android:layout_width="171dp"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 
 </LinearLayout>

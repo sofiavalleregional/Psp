@@ -1,11 +1,13 @@
 package com.worldskills.psp.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.worldskills.psp.R;
+import com.worldskills.psp.db.DataBaseTSP;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +28,7 @@ public class DefectLog extends AppCompatActivity {
     TextView textFecha;
     EditText solucion;
     Spinner type, injectec, removed;
+    Dialog saved, alert;
     Chronometer defectcrono;
 
 
@@ -38,6 +42,13 @@ public class DefectLog extends AppCompatActivity {
         type= findViewById(R.id.defect_spinner);
         injectec= findViewById(R.id.defect_spinner_inject);
         removed= findViewById(R.id.defect_spinner_removed);
+        saved= new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
+        saved.setContentView(R.layout.dialog_saved);
+        saved.setCanceledOnTouchOutside(false);
+
+        alert= new Dialog(this);
+        alert.setContentView(R.layout.dialog_saved);
+        alert.setCanceledOnTouchOutside(false);
 
 
         defectcrono= findViewById(R.id.defect_crono);
@@ -115,7 +126,8 @@ public class DefectLog extends AppCompatActivity {
                 break;
             case R.id.defect_reinicio_time:
                 p7=true;
-
+                defectcrono.setBase(SystemClock.elapsedRealtime());
+                defectcrono.start();
                 break;
         }
     }
@@ -130,13 +142,32 @@ public class DefectLog extends AppCompatActivity {
                 else p8=true;
 
         if(p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8){
-            //BASE DE DATOS
-            // Dialog de exitoso.
-            Intent intent= new Intent(this, DefectLog.class);
-            startActivity(intent);
+            DataBaseTSP db = new DataBaseTSP(this);
+            db.saveDefecLog(1, tipo, fecha, inyectada, removido, tiempo, solution);
+            Button volver =saved.findViewById(R.id.dialog_saved_botton);
+
+            volver.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent= new Intent(getApplicationContext(), DefectLog.class);
+                    startActivity(intent);
+                    saved.dismiss();
+                }
+            });
+
+            saved.show();
+
         } else {
-            Toast.makeText(this, "NO HA COMPLETADO LOS CAMPOS", Toast.LENGTH_SHORT).show();
-            // Alerta
+
+            Button salir = alert.findViewById(R.id.alert_button);
+            salir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alert.dismiss();
+                }
+            });
+
+            alert.show();
         }
 
     }
