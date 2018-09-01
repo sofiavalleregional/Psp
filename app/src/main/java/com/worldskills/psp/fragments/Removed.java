@@ -7,12 +7,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.worldskills.psp.Home;
 import com.worldskills.psp.R;
@@ -23,12 +18,10 @@ import com.worldskills.psp.modelos.ItemInformacion;
 
 import java.util.ArrayList;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TimeInPhase extends Fragment {
-
+public class Removed extends Fragment {
     private AdapterInformacion adapterInfo;
     private ArrayList<ItemInformacion> infos;
     private GridView gridView;
@@ -36,12 +29,7 @@ public class TimeInPhase extends Fragment {
     private int idProyecto;
     private int contador;
 
-    private LinearLayout layoutTiempo;
-    private EditText agregaTime;
-    private ImageButton botonTiempo;
-
-
-    public TimeInPhase() {
+    public Removed() {
         // Required empty public constructor
     }
 
@@ -51,7 +39,9 @@ public class TimeInPhase extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View row=inflater.inflate(R.layout.fragment_time_in_fase, container, false);
+
+        View row=inflater.inflate(R.layout.fragment_removed, container, false);
+        gridView=row.findViewById(R.id.gridview_info);
 
         if (getArguments()!=null){
             catidadTotal=getArguments().getInt(PlanSumary.KEYTIEMPOTOTAL);
@@ -59,42 +49,11 @@ public class TimeInPhase extends Fragment {
         }
         contador=0;
         gridView=row.findViewById(R.id.gridview_info);
-        layoutTiempo=row.findViewById(R.id.plan_layout_tiempo);
-        agregaTime=row.findViewById(R.id.plan_edit_text_tiempo);
-        botonTiempo=row.findViewById(R.id.plan_guarda_tiepo);
-
-        if(catidadTotal==0){
-            layoutTiempo.getLayoutParams().height=500;
-            agregaTime();
-        }else{
-            layoutTiempo.getLayoutParams().height=0;
-            adapterContenido();
-        }
 
 
         if (getActivity()!=null && isAdded())adapterContenido();
-
-
         return row;
     }
-    public void agregaTime(){
-        botonTiempo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                catidadTotal=0;
-                if (agregaTime.getText().toString().equalsIgnoreCase(""))
-                    catidadTotal=Integer.parseInt(agregaTime.getText().toString());
-                if (catidadTotal>0) {
-                    DataBaseTSP db = new DataBaseTSP(getActivity());
-                    db.tablaProyectos(DataBaseTSP.ACTUALIZAR_PROYECTO, idProyecto, null,catidadTotal);
-                    cargarInfomacion();
-                }else{
-                    Toast.makeText(getActivity(), "Agrega tiempo para mostrar informacion", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
     public void adapterContenido(){
         try{
             infos=new ArrayList<>();
@@ -113,11 +72,11 @@ public class TimeInPhase extends Fragment {
         fases=getActivity().getResources().getStringArray(R.array.fases);
 
         for (int i=0; i<fases.length;i++){
-            Cursor cursor=db.cargarTimelog(idProyecto+"",fases[i]);
+            Cursor cursor=db.cargarDefecLog(idProyecto+"",null,fases[i]);
             if (cursor!=null){
                 if (cursor.moveToFirst()){
                     do{
-                        contador+=cursor.getInt(0);
+                        contador++;
                     }while (cursor.moveToNext());
                 }
             }
@@ -127,9 +86,10 @@ public class TimeInPhase extends Fragment {
                 porcentaje=contador*100/catidadTotal;
             }catch (Exception e){}
 
-            infos.add(new ItemInformacion(porcentaje,fases[i],"Tiempo: "+contador));
+            infos.add(new ItemInformacion(porcentaje,fases[i],"Cantidad defectos:\n "+contador));
 
         }
     }
+
 
 }
