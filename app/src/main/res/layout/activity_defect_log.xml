@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.DefectLog">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:hint="Pulsar el boton para iniciar el defecto"
+            android:id="@+id/defect_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:onClick="iniciodefect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <Spinner
+
+        android:id="@+id/defect_spinner"
+        android:entries="@array/tipos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+
+        android:id="@+id/defect_spinner_removed"
+        android:entries="@array/fases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <Spinner
+
+        android:id="@+id/defect_spinner_inject"
+        android:entries="@array/fases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Chronometer
+        android:id="@+id/defect_crono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/defect_inicio_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/defect_parar_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/defect_reinicio_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/defect_edit"
+        android:layout_width="231dp"
+        android:layout_height="142dp" />
+
+    <Button
+        android:text="guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>
