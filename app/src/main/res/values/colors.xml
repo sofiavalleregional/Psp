@@ -12,4 +12,9 @@
     <color name="fondo_item_proyecto">#f4f4f4</color>
     <color name="color_linea_separador">#ababab</color>
     <color name="color_letra_titulos">#f4f4f4</color>
+
+
+    <color name="transparent">#d397dcff</color>
+
+    <color name="soff">#eaeaea</color>
 </resources>

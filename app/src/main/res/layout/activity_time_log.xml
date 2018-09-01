@@ -4,38 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/gosht2"
     android:gravity="center"
     android:layout_height="match_parent"
     tools:context=".activities.TimeLog">
 
-
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alto_toolbar"
+        android:background="@drawable/fondo_toolbar_degradado"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageButton
+                android:background="@drawable/icon_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/consola"
+                android:textColor="@color/color_letra_titulos"
+                android:textSize="35dp"
+                android:text="TSP/PSP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/consola"
+                android:textStyle="bold"
+                android:textColor="@color/color_letra_titulos"
+                android:textSize="15dp"
+                android:text=" Mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="26dp"
+            android:textStyle="bold"
+            android:textColor="@color/color_letra_titulos"
+            android:fontFamily="@font/consola"
+            android:text="Time Log"/>
 
-            android:hint="Fecha de inicio "
-            android:id="@+id/time_inicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
-
-        <Button
-            android:onClick="iniciarfase"
-            android:id="@+id/time_boton_inicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
     </LinearLayout>
 
 
-    <Spinner
-        android:id="@+id/time_spinner_fase"
-        android:layout_marginTop="30dp"
+    <LinearLayout
+     android:background="@drawable/contenedor"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/fases"/>
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:id="@+id/time_inicio"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/consolab"
+            android:hint="Fecha de inicio "
+            android:textAlignment="center"
+
+            android:textSize="18dp" />
+
+
+        <Button
+            android:id="@+id/time_boton_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_curva"
+            android:onClick="iniciarfase" />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="214dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/color_linea_separador" />
+
+    <TextView
+        android:fontFamily="@font/consolai"
+        android:text="Fase"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:background="@drawable/contenedor"
+        android:id="@+id/time_spinner_fase"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:entries="@array/fases" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -61,19 +136,25 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:background="@drawable/contenedor"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-
-            android:hint="Fecha final "
             android:id="@+id/time_final"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/consolab"
+            android:hint="Fecha    final "
+            android:textAlignment="center"
+            android:textSize="18dp" />
 
 
         <Button
+            android:background="@drawable/boton_curva"
             android:onClick="detener"
             android:id="@+id/time_boton_final"
             android:layout_width="wrap_content"
