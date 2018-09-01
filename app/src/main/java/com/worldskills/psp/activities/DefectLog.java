@@ -153,6 +153,7 @@ public class DefectLog extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent= new Intent(getApplicationContext(), DefectLog.class);
+                    intent.putExtra(Home.KEYID, idproyect);
                     startActivity(intent);
                     saved.dismiss();
                 }
