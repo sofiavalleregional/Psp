@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <shape>
+            <corners android:radius="20dp" android:bottomLeftRadius="0dp"/>
+
+            <gradient android:startColor="@color/azul_verde_1"
+                android:centerColor="@color/azul_verde_2"
+                android:endColor="@color/azul_verde_3"/>
+
+        </shape>
+
+    </item>
+
+    <item
+        android:height="30dp"
+        android:width="30dp"
+        android:gravity="center"
+        android:drawable="@drawable/icon_add"/>
+
+
+</layer-list>

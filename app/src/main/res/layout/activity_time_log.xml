@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/gosht2"
+    android:background="@color/soff"
     android:gravity="center"
     android:layout_height="match_parent"
     tools:context=".activities.TimeLog">
@@ -61,129 +61,185 @@
 
     </LinearLayout>
 
-
-    <LinearLayout
-     android:background="@drawable/contenedor"
-        android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:id="@+id/time_inicio"
-            android:layout_width="161dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/consolab"
-            android:hint="Fecha de inicio "
-            android:textAlignment="center"
-
-            android:textSize="18dp" />
-
-
-        <Button
-            android:id="@+id/time_boton_inicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/boton_curva"
-            android:onClick="iniciarfase" />
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="214dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="30dp"
-        android:background="@color/color_linea_separador" />
-
-    <TextView
-        android:fontFamily="@font/consolai"
-        android:text="Fase"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:background="@drawable/contenedor"
-        android:id="@+id/time_spinner_fase"
-        android:layout_width="180dp"
-        android:layout_height="35dp"
-        android:entries="@array/fases" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:inputType="number"
-            android:id="@+id/time_edit_interrup"
-            android:textAlignment="center"
-            android:layout_width="137dp"
-            android:layout_height="wrap_content"
-            android:hint="0" />
-
-        <Button
-            android:onClick="agregar"
-            android:id="@+id/time_boton_interrupciones"
-            android:text="Agregar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-    <LinearLayout
-        android:background="@drawable/contenedor"
-        android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <LinearLayout
+                android:background="@drawable/contenedor"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/time_final"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/consolab"
-            android:hint="Fecha    final "
-            android:textAlignment="center"
-            android:textSize="18dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/time_inicio"
+                    android:layout_width="161dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/consolab"
+                    android:hint="Fecha de inicio "
+                    android:textAlignment="center"
 
-
-        <Button
-            android:background="@drawable/boton_curva"
-            android:onClick="detener"
-            android:id="@+id/time_boton_final"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+                    android:textSize="18dp" />
 
 
-
-    <TextView
-        android:id="@+id/time_delta"
-        android:text="Delta calculada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <EditText
-        android:hint="Comentarios"
-        android:layout_marginTop="30dp"
-        android:id="@+id/time_edit_comments"
-        android:layout_width="137dp"
-        android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/time_boton_inicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boton_curva"
+                    android:onClick="iniciarfase" />
+            </LinearLayout>
 
 
-    <Button
-        android:onClick="guardar"
-        android:id="@+id/time_boton_guarda"
-        android:text="Guardar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_linea_separador" />
+
+            <TextView
+                android:fontFamily="@font/consolai"
+                android:text="Fase"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+
+                android:id="@+id/time_spinner_fase"
+                android:layout_width="180dp"
+
+                android:layout_height="35dp"
+                android:entries="@array/fases" />
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_linea_separador" />
+
+            <TextView
+                android:fontFamily="@font/consolai"
+                android:text="Interrupciones"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/time_edit_interrup"
+                    android:layout_width="47dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/azul_verde_2"
+                    android:inputType="number"
+                    android:text="0"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:background="@drawable/boton"
+                    android:onClick="agregar"
+                    android:id="@+id/time_boton_interrupciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_linea_separador" />
+
+
+
+            <LinearLayout
+                android:background="@drawable/contenedor"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/time_final"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/consolab"
+                    android:hint="Fecha    final "
+                    android:textAlignment="center"
+                    android:textSize="18dp" />
+
+
+                <Button
+                    android:background="@drawable/boton_curva"
+                    android:onClick="detener"
+                    android:id="@+id/time_boton_final"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_linea_separador" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/azul_verde_2"
+                android:id="@+id/time_delta"
+                android:text="Delta calculada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="254dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_linea_separador" />
+
+
+            <EditText
+                android:id="@+id/time_edit_comments"
+                android:layout_width="203dp"
+                android:layout_height="81dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/contenedor"
+                android:hint="Comentarios" />
+
+
+            <Button
+                android:id="@+id/time_boton_guarda"
+                android:layout_width="171dp"
+                android:layout_height="40dp"
+                android:background="@drawable/prueba"
+                android:onClick="guardar"
+                android:text="Guardar" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 
 
