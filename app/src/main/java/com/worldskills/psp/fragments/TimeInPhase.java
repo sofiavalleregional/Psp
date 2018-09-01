@@ -48,6 +48,7 @@ public class TimeInPhase extends Fragment {
             catidadTotal=getArguments().getInt(PlanSumary.KEYTIEMPOTOTAL);
             idProyecto=getArguments().getInt(Home.KEYID);
         }
+        contador=0;
         gridView=row.findViewById(R.id.gridview_info);
 
 
@@ -55,9 +56,7 @@ public class TimeInPhase extends Fragment {
 
         return row;
     }
-    public void findViews(){
 
-    }
     public void adapterContenido(){
         try{
             infos=new ArrayList<>();
@@ -66,6 +65,7 @@ public class TimeInPhase extends Fragment {
 
         }catch (Exception e){}
 
+        cargarInfomacion();
         adapterInfo.notifyDataSetChanged();
     }
 
@@ -79,10 +79,15 @@ public class TimeInPhase extends Fragment {
             if (cursor!=null){
                 if (cursor.moveToFirst()){
                     do{
-
+                        contador+=cursor.getInt(0);
                     }while (cursor.moveToNext());
                 }
             }
+
+            double porcentaje=0.00;
+            try{
+
+            }catch (Exception e){}
 
         }
     }
