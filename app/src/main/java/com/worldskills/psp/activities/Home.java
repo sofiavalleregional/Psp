@@ -113,6 +113,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialogCrearP.dismiss();
+                cargaListado();
             }
         });
 
