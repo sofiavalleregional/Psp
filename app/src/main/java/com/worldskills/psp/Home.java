@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.worldskills.psp.activities.DefectLog;
 import com.worldskills.psp.activities.TimeLog;
 
 public class Home extends AppCompatActivity {
@@ -16,7 +17,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void pasar(View view) {
-        Intent intent= new Intent(this, TimeLog.class);
+        Intent intent= new Intent(this, DefectLog.class);
         startActivity(intent);
     }
 }

@@ -112,7 +112,7 @@ public class TimeLog extends AppCompatActivity {
         if(part1 && part2 && part3 && part4 && part5){
 
             DataBaseTSP db = new DataBaseTSP(this);
-           // db.saveTimeLog(0, fase,fechaI,  );
+            db.saveTimeLog(0, fase,fechaI, fechaF, delta, comentarios);
             // Dialogo de información exitosa
 
             Intent volver= new Intent(this, TimeLog.class);

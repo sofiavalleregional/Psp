@@ -10,6 +10,7 @@ import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.worldskills.psp.R;
 
@@ -38,6 +39,7 @@ public class DefectLog extends AppCompatActivity {
         injectec= findViewById(R.id.defect_spinner_inject);
         removed= findViewById(R.id.defect_spinner_removed);
 
+
         defectcrono= findViewById(R.id.defect_crono);
         solucion= findViewById(R.id.defect_edit);
     }
@@ -47,6 +49,8 @@ public class DefectLog extends AppCompatActivity {
         SimpleDateFormat formato= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
         Date date= new Date();
         fecha= formato.format(date);
+
+        textFecha.setText(fecha);
     }
 
     public void ingresotipo(){
@@ -111,8 +115,7 @@ public class DefectLog extends AppCompatActivity {
                 break;
             case R.id.defect_reinicio_time:
                 p7=true;
-                defectcrono= null;
-                defectcrono.setBase(0000);
+
                 break;
         }
     }
@@ -127,11 +130,12 @@ public class DefectLog extends AppCompatActivity {
                 else p8=true;
 
         if(p1 && p2 && p3 && p4 && p5 && p6 && p7 && p8){
-            // BASE DE DATOS
+            //BASE DE DATOS
             // Dialog de exitoso.
             Intent intent= new Intent(this, DefectLog.class);
             startActivity(intent);
         } else {
+            Toast.makeText(this, "NO HA COMPLETADO LOS CAMPOS", Toast.LENGTH_SHORT).show();
             // Alerta
         }
 
