@@ -70,7 +70,7 @@ public class AdapterProyectos extends BaseAdapter{
         if (proyecto.getTiempoTotal()<=0){
             holder.viewTiempo.setText("Sin tiempo estimado");
         }else{
-            holder.viewTiempo.setText(proyecto.getTiempoTotal()+"");
+            holder.viewTiempo.setText("Tiempo estimado: "+proyecto.getTiempoTotal()+" minutos");
         }
 
         holder.viewFondo.setBackgroundResource(R.drawable.fondo_item_proyecto);
