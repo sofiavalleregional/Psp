@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.worldskills.psp.R;
+import com.worldskills.psp.db.DataBaseTSP;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
@@ -39,6 +40,8 @@ public class TimeLog extends AppCompatActivity {
         timefase= findViewById(R.id.time_spinner_fase);
         interr= findViewById(R.id.time_edit_interrup);
         descripcion= findViewById(R.id.time_edit_comments);
+        textdelta= findViewById(R.id.time_delta);
+        datefinal= findViewById(R.id.time_final);
 
         spinneronclick();
 
@@ -60,17 +63,23 @@ public class TimeLog extends AppCompatActivity {
 
     public void spinneronclick(){
         part2=true;
-        timefase.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        timefase.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 fase =(String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }
 
     public void agregar(View view) {
         part3=true;
-        totalinter = totalinter + (Integer.parseInt(interr.getText().toString()));
+        int mas=(Integer.parseInt(interr.getText().toString()));
+        totalinter+=mas;
         interr.setText("0");
         Toast.makeText(this, "Tiempo acumulado" +totalinter, Toast.LENGTH_SHORT).show();
     }
@@ -79,7 +88,8 @@ public class TimeLog extends AppCompatActivity {
     public void detener(View view) {
         part4=true;
         timecronometro.stop();
-        delta= (int) ((timecronometro.getBase()- SystemClock.currentThreadTimeMillis()/1000)/60)-totalinter;
+        int tiempo = (int)((timecronometro.getBase()- SystemClock.elapsedRealtime()/1000)/60);
+        delta=  tiempo-totalinter;
         textdelta.setText("Delta " +delta);
 
         SimpleDateFormat format= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
@@ -92,21 +102,24 @@ public class TimeLog extends AppCompatActivity {
 
     public void comentar(){
         comentarios= descripcion.getText().toString();
-        part5=true;
+        if(comentarios.equalsIgnoreCase("")) part5=false;
+        else part5=true;
     }
 
 
     public void guardar(View V){
         comentar();
         if(part1 && part2 && part3 && part4 && part5){
-            // BASDE DE DATOS
 
+            DataBaseTSP db = new DataBaseTSP(this);
+           // db.saveTimeLog(0, fase,fechaI,  );
             // Dialogo de información exitosa
 
             Intent volver= new Intent(this, TimeLog.class);
             startActivity(volver);
         } else {
             // ALerta
+            Toast.makeText(this, "NO HA COMPLETADO LOS CAMPOS", Toast.LENGTH_SHORT).show();
         }
     }
 }

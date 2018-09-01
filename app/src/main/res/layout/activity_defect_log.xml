@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".activities.DefectLog">
 
@@ -48,9 +49,10 @@
         android:layout_height="wrap_content"/>
 
     <Chronometer
+        android:textSize="20dp"
         android:id="@+id/defect_crono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="35dp"
+        android:layout_height="41dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -58,16 +60,19 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:onClick="fixtime"
             android:id="@+id/defect_inicio_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Button
+            android:onClick="fixtime"
             android:id="@+id/defect_parar_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <Button
+            android:onClick="fixtime"
             android:id="@+id/defect_reinicio_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -78,9 +83,10 @@
     <EditText
         android:id="@+id/defect_edit"
         android:layout_width="231dp"
-        android:layout_height="142dp" />
+        android:layout_height="91dp" />
 
     <Button
+        android:onClick="guardardefecto"
         android:text="guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
