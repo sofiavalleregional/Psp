@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TimeInPhase">
+    tools:context=".fragments.Removed">
 
     <!-- TODO: Update blank fragment layout -->
     <GridView
@@ -11,6 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
+        android:verticalSpacing="3dp"
+        android:horizontalSpacing="3dp"
         android:numColumns="2"></GridView>
 
 </FrameLayout>
