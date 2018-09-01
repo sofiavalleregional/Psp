@@ -9,4 +9,6 @@
     <color name="azul_verde_3">#1d747c</color>
 
     <color name="ghost">#dedede</color>
+    <color name="fondo_item_proyecto">#f4f4f4</color>
+    <color name="color_linea_separador">#ababab</color>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:height="@dimen/alto_total_fondo_proyecto"
+        >
+
+        <shape>
+            <solid android:color="@color/azul_verde_3"/>
+            <corners android:radius="@dimen/radio_fondo_proyecto"/>
+
+        </shape>
+    </item>
+
+
+    <item
+        android:height="@dimen/alto_fondo_proyecto"
+        >
+
+        <shape>
+            <solid android:color="@color/fondo_item_proyecto"/>
+            <corners android:radius="@dimen/radio_fondo_proyecto"/>
+
+        </shape>
+    </item>
+
+
+
+</layer-list>

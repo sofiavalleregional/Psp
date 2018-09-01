@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="alto_total_fondo_proyecto">150dp</dimen>
+    <dimen name="alto_fondo_proyecto">135dp</dimen>
+    <dimen name="radio_fondo_proyecto">15dp</dimen>
+    <dimen name="tam_circulo_lista">90dp</dimen>
+</resources>
