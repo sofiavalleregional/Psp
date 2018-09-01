@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,12 +26,13 @@ import java.util.Date;
 public class TimeLog extends AppCompatActivity {
 
     private String fechaI, fechaF, comentarios, fase;
-    private int delta, totalinter, tiempo;
+    private int delta, totalinter, tiempo, idproyect;
     Chronometer timecronometro;
     Spinner timefase;
     TextView dateini, datefinal,  textdelta;
     Dialog alert, saved;
     EditText interr, descripcion;
+    ImageButton bsalir;
     Boolean part1, part2, part3, part4, part5;
 
     @Override
@@ -40,6 +42,9 @@ public class TimeLog extends AppCompatActivity {
 
 
         // Busca
+
+        Bundle bun= getIntent().getExtras();
+        idproyect= bun.getInt(Home.KEYID);
         timecronometro= new Chronometer(this);
 
         dateini= findViewById(R.id.time_inicio);
@@ -48,6 +53,7 @@ public class TimeLog extends AppCompatActivity {
         descripcion= findViewById(R.id.time_edit_comments);
         textdelta= findViewById(R.id.time_delta);
         datefinal= findViewById(R.id.time_final);
+        bsalir= findViewById(R.id.time_salir);
 
         alert= new Dialog(this);
         alert.setContentView(R.layout.dialog_alert);
@@ -70,9 +76,8 @@ public class TimeLog extends AppCompatActivity {
     public void iniciarfase(View view) {
         part1 = true;
         timecronometro.start();
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         Date date = new Date();
-
 
         fechaI= format.format(date);
         dateini.setText(fechaI);
@@ -113,7 +118,7 @@ public class TimeLog extends AppCompatActivity {
         delta= totalinter-tiempo;
         textdelta.setText("Delta " +delta);
 
-        SimpleDateFormat format= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
+        SimpleDateFormat format= new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
         Date date = new Date();
 
         fechaF= format.format(date);
@@ -133,7 +138,7 @@ public class TimeLog extends AppCompatActivity {
         if(part1 && part2 && part3 && part4 && part5){
 
             DataBaseTSP db = new DataBaseTSP(this);
-            db.saveTimeLog(0, fase,fechaI, fechaF, delta, comentarios);
+            db.saveTimeLog(idproyect, fase,fechaI, fechaF, delta, comentarios);
             dialog();
         } else {
             Button volver = alert.findViewById(R.id.alert_button);
@@ -160,6 +165,22 @@ public class TimeLog extends AppCompatActivity {
             }
         });
 
+    }
 
+
+    public void volver(View v){
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        try{
+            timecronometro.stop();
+        } catch (Exception e){}
+        super.onBackPressed();
+        Intent i= new Intent(getApplicationContext(), Home.class);
+        startActivity(i);
+        finish();
     }
 }
