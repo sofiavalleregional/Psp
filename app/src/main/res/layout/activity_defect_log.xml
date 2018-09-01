@@ -20,12 +20,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
+
+
             <ImageButton
+                android:onClick="volver"
                 android:id="@+id/defect_salir"
                 android:background="@drawable/icon_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
 
 

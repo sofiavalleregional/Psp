@@ -41,7 +41,7 @@ public class TimeLog extends AppCompatActivity {
         setContentView(R.layout.activity_time_log);
 
 
-        // Busca
+        // Busca todos los componentes en el xml
 
         Bundle bun= getIntent().getExtras();
         idproyect= bun.getInt(Home.KEYID);
@@ -65,14 +65,15 @@ public class TimeLog extends AppCompatActivity {
         saved.setCanceledOnTouchOutside(false);
 
 
-
+// metodo que toma el llamado del spinner
         spinneronclick();
 
         totalinter= 0;
+        delta=0;
     }
 
 
-
+// El metodo se encarga de iniciar la fase con un cronometro y de mostrar la fecha actual
     public void iniciarfase(View view) {
         part1 = true;
         timecronometro.start();
@@ -84,6 +85,7 @@ public class TimeLog extends AppCompatActivity {
     }
 
 
+    // metodo que esta atento a la llamada del spinner por selección de item
     public void spinneronclick(){
         part2=true;
         timefase.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -99,6 +101,7 @@ public class TimeLog extends AppCompatActivity {
         });
     }
 
+    // metodo para agregar las interrupciones
     public void agregar(View view) {
         part3=true;
         int mas=(Integer.parseInt(interr.getText().toString()));
@@ -108,6 +111,7 @@ public class TimeLog extends AppCompatActivity {
     }
 
 
+    // metodo para detwener la fase y calcular el delta
     public void detener(View view) {
         part4=true;
         timecronometro.stop();
@@ -126,13 +130,16 @@ public class TimeLog extends AppCompatActivity {
         part4=true;
     }
 
+    // metodo que recibe los comentarios y verifica que no este vacio
     public void comentar(){
         comentarios= descripcion.getText().toString();
-        if(comentarios.equalsIgnoreCase("")) part5=false;
-        else part5=true;
+        if(comentarios.equalsIgnoreCase("")) {
+            part5=false;
+        } else part5=true;
     }
 
 
+    // metodo que guarda en la base de datos y se encarga de verificar que tdoos los campos esten vacios y se muestre la alerta
     public void guardar(View V){
         comentar();
         if(part1 && part2 && part3 && part4 && part5){
@@ -153,6 +160,7 @@ public class TimeLog extends AppCompatActivity {
         }
     }
 
+    // metodo que llama al dialogo para mostrarse
     public void dialog(){
         Button cargar = saved.findViewById(R.id.dialog_saved_botton);
         saved.show();
@@ -160,6 +168,7 @@ public class TimeLog extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent volver= new Intent(getApplicationContext(), TimeLog.class);
+                volver.putExtra(Home.KEYID, idproyect);
                 startActivity(volver);
                 saved.dismiss();
             }
