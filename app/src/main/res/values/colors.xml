@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="azul_verde_1">#97dcff</color>
+    <color name="azul_verde_2">#4896be</color>
+    <color name="azul_verde_3">#1d747c</color>
+
+    <color name="ghost">#dedede</color>
 </resources>
