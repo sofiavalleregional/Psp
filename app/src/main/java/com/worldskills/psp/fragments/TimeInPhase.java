@@ -67,7 +67,7 @@ public class TimeInPhase extends Fragment {
 
         if (getActivity()!=null && isAdded()) {
             if (catidadTotal == 0) {
-                layoutTiempo.getLayoutParams().height =getActivity().getResources().getDisplayMetrics().heightPixels;
+                layoutTiempo.getLayoutParams().height =getActivity().getResources().getDisplayMetrics().heightPixels/2;
                 agregaTime();
             } else {
                 layoutTiempo.getLayoutParams().height = 0;
@@ -94,6 +94,7 @@ public class TimeInPhase extends Fragment {
                 }else{
                     DataBaseTSP db = new DataBaseTSP(getActivity());
                     db.tablaProyectos(DataBaseTSP.ACTUALIZAR_PROYECTO, idProyecto, null,catidadTotal);
+                    layoutTiempo.getLayoutParams().height = 0;
                     adapterContenido();
 
                 }

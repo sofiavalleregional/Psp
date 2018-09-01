@@ -21,6 +21,7 @@
             android:orientation="horizontal"
             >
             <ImageButton
+                android:id="@+id/plan_atras"
                 android:background="@drawable/icon_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
