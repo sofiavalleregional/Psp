@@ -17,6 +17,10 @@
             android:layout_height="@dimen/tam_circulo_lista"
             android:layout_gravity="center_vertical"
             android:background="@drawable/fondo_circular_degradado_1"
+            android:text="1"
+            android:gravity="center"
+            android:textSize="32dp"
+            android:textColor="@android:color/white"
             />
 
         <TextView
@@ -31,16 +35,29 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-
-            android:orientation="vertical"
-            android:layout_height="wrap_content"></LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Nombre proyecto"
-            />
+            android:orientation="vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Nombre proyecto"
+                android:textSize="19sp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Tiempo estimado"
+                />
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
