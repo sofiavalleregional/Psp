@@ -62,7 +62,7 @@ public class AdapterProyectos extends BaseAdapter{
         }
         ItemProyecto proyecto=proyectos.get(position);
 
-        holder.viewId.setText(proyecto.getIdProyecto());
+        holder.viewId.setText(proyecto.getIdProyecto()+"");
         holder.viewId.setBackgroundResource(R.drawable.fondo_circular_degradado_1);
 
         holder.viewNombre.setText(proyecto.getNombreProyecto());
@@ -70,7 +70,7 @@ public class AdapterProyectos extends BaseAdapter{
         if (proyecto.getTiempoTotal()<=0){
             holder.viewTiempo.setText("Sin tiempo estimado");
         }else{
-            holder.viewTiempo.setText(proyecto.getTiempoTotal());
+            holder.viewTiempo.setText(proyecto.getTiempoTotal()+"");
         }
 
         holder.viewFondo.setBackgroundResource(R.drawable.fondo_item_proyecto);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@drawable/fondo_item_proyecto"
+        >
+
+
+    </item>
+    <item
+        android:width="@dimen/alto_fondo_proyecto"
+        android:height="@dimen/alto_fondo_proyecto"
+        android:drawable="@drawable/fondo_circular_degradado_1"
+        />
+
+</layer-list>
