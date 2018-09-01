@@ -8,4 +8,5 @@
     <dimen name="tam_circulo_lista">90dp</dimen>
 
     <dimen name="alto_toolbar">190dp</dimen>
+    <dimen name="radio_menu_funciones_bton">10dp</dimen>
 </resources>
