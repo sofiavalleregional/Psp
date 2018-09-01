@@ -158,7 +158,6 @@ public class DefectLog extends AppCompatActivity {
             saved.show();
 
         } else {
-
             Button salir = alert.findViewById(R.id.alert_button);
             salir.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -169,6 +168,6 @@ public class DefectLog extends AppCompatActivity {
 
             alert.show();
         }
+        }
 
-    }
 }

@@ -38,6 +38,8 @@ public class TimeLog extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_log);
 
+
+        // Busca
         timecronometro= new Chronometer(this);
 
         dateini= findViewById(R.id.time_inicio);
@@ -53,7 +55,7 @@ public class TimeLog extends AppCompatActivity {
 
 
         saved= new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
-        saved.setContentView(R.layout.dialog_alert);
+        saved.setContentView(R.layout.dialog_saved);
         saved.setCanceledOnTouchOutside(false);
 
 
@@ -97,7 +99,7 @@ public class TimeLog extends AppCompatActivity {
         int mas=(Integer.parseInt(interr.getText().toString()));
         totalinter+=mas;
         interr.setText("0");
-        Toast.makeText(this, "Tiempo acumulado" +totalinter, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Tiempo acumulado: " +totalinter, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -132,9 +134,7 @@ public class TimeLog extends AppCompatActivity {
 
             DataBaseTSP db = new DataBaseTSP(this);
             db.saveTimeLog(0, fase,fechaI, fechaF, delta, comentarios);
-
-
-
+            dialog();
         } else {
             Button volver = alert.findViewById(R.id.alert_button);
             volver.setOnClickListener(new View.OnClickListener() {
