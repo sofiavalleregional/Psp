@@ -22,6 +22,7 @@
             android:orientation="horizontal"
             >
             <ImageButton
+                android:id="@+id/time_salir"
                 android:background="@drawable/icon_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
@@ -147,7 +148,7 @@
                 <EditText
                     android:id="@+id/time_edit_interrup"
                     android:layout_width="47dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="58dp"
                     android:backgroundTint="@color/azul_verde_2"
                     android:inputType="number"
                     android:text="0"
@@ -221,6 +222,7 @@
 
 
             <EditText
+                android:textAlignment="center"
                 android:id="@+id/time_edit_comments"
                 android:layout_width="203dp"
                 android:layout_height="81dp"
@@ -230,9 +232,13 @@
 
 
             <Button
+                android:fontFamily="@font/consolai"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
                 android:id="@+id/time_boton_guarda"
                 android:layout_width="171dp"
                 android:layout_height="40dp"
+                android:textSize="20sp"
                 android:background="@drawable/prueba"
                 android:onClick="guardar"
                 android:text="Guardar" />

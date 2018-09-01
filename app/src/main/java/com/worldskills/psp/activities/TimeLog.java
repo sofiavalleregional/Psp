@@ -1,11 +1,13 @@
 package com.worldskills.psp.activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -17,6 +19,7 @@ import com.worldskills.psp.db.DataBaseTSP;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class TimeLog extends AppCompatActivity {
@@ -26,6 +29,7 @@ public class TimeLog extends AppCompatActivity {
     Chronometer timecronometro;
     Spinner timefase;
     TextView dateini, datefinal,  textdelta;
+    Dialog alert, saved;
     EditText interr, descripcion;
     Boolean part1, part2, part3, part4, part5;
 
@@ -43,6 +47,17 @@ public class TimeLog extends AppCompatActivity {
         textdelta= findViewById(R.id.time_delta);
         datefinal= findViewById(R.id.time_final);
 
+        alert= new Dialog(this);
+        alert.setContentView(R.layout.dialog_alert);
+        alert.setCanceledOnTouchOutside(false);
+
+
+        saved= new Dialog(this, android.R.style.Theme_NoTitleBar_Fullscreen);
+        saved.setContentView(R.layout.dialog_alert);
+        saved.setCanceledOnTouchOutside(false);
+
+
+
         spinneronclick();
 
         totalinter= 0;
@@ -51,10 +66,13 @@ public class TimeLog extends AppCompatActivity {
 
 
     public void iniciarfase(View view) {
-        part1=true;
+        part1 = true;
         timecronometro.start();
-        SimpleDateFormat format= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
-        Date date= new Date();
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
+        Date date = new Date();
+
+
+
 
         fechaI= format.format(date);
         dateini.setText(fechaI);
@@ -88,8 +106,14 @@ public class TimeLog extends AppCompatActivity {
     public void detener(View view) {
         part4=true;
         timecronometro.stop();
-        int tiempo = (int)((timecronometro.getBase()- SystemClock.elapsedRealtime()/1000)/60);
-        delta=  tiempo-totalinter;
+        long cronotime= timecronometro.getBase()- SystemClock.elapsedRealtime();
+        int secun= (int) cronotime/1000;
+        int tiempo = secun/60;
+     /*   if(tiempo<=0){
+            delta=0;
+        } else {
+            delta=  tiempo-totalinter;
+        }*/
         textdelta.setText("Delta " +delta);
 
         SimpleDateFormat format= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
@@ -113,13 +137,30 @@ public class TimeLog extends AppCompatActivity {
 
             DataBaseTSP db = new DataBaseTSP(this);
             db.saveTimeLog(0, fase,fechaI, fechaF, delta, comentarios);
-            // Dialogo de información exitosa
+            Button cargar = saved.findViewById(R.id.dialog_saved_botton);
+            saved.show();
+            cargar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent volver= new Intent(getApplicationContext(), TimeLog.class);
+                    startActivity(volver);
+                    saved.dismiss();
+                }
+            });
 
-            Intent volver= new Intent(this, TimeLog.class);
-            startActivity(volver);
+
+
+
         } else {
-            // ALerta
-            Toast.makeText(this, "NO HA COMPLETADO LOS CAMPOS", Toast.LENGTH_SHORT).show();
+            Button volver = alert.findViewById(R.id.alert_button);
+            volver.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    alert.dismiss();
+                }
+            });
+
+            alert.show();
         }
     }
 }
