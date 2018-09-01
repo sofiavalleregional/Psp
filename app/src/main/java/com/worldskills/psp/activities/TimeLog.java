@@ -72,8 +72,6 @@ public class TimeLog extends AppCompatActivity {
         Date date = new Date();
 
 
-
-
         fechaI= format.format(date);
         dateini.setText(fechaI);
     }
@@ -109,11 +107,8 @@ public class TimeLog extends AppCompatActivity {
         long cronotime= timecronometro.getBase()- SystemClock.elapsedRealtime();
         int secun= (int) cronotime/1000;
         int tiempo = secun/60;
-     /*   if(tiempo<=0){
-            delta=0;
-        } else {
-            delta=  tiempo-totalinter;
-        }*/
+
+        delta= totalinter-tiempo;
         textdelta.setText("Delta " +delta);
 
         SimpleDateFormat format= new SimpleDateFormat("HH:mm:ss dd/mm/yyyy");
@@ -137,17 +132,6 @@ public class TimeLog extends AppCompatActivity {
 
             DataBaseTSP db = new DataBaseTSP(this);
             db.saveTimeLog(0, fase,fechaI, fechaF, delta, comentarios);
-            Button cargar = saved.findViewById(R.id.dialog_saved_botton);
-            saved.show();
-            cargar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent volver= new Intent(getApplicationContext(), TimeLog.class);
-                    startActivity(volver);
-                    saved.dismiss();
-                }
-            });
-
 
 
 
@@ -162,5 +146,20 @@ public class TimeLog extends AppCompatActivity {
 
             alert.show();
         }
+    }
+
+    public void dialog(){
+        Button cargar = saved.findViewById(R.id.dialog_saved_botton);
+        saved.show();
+        cargar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent volver= new Intent(getApplicationContext(), TimeLog.class);
+                startActivity(volver);
+                saved.dismiss();
+            }
+        });
+
+
     }
 }
