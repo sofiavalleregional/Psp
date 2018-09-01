@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.worldskills.psp.Home;
+import com.worldskills.psp.activities.Home;
 import com.worldskills.psp.R;
 import com.worldskills.psp.activities.PlanSumary;
 import com.worldskills.psp.adapters.AdapterInformacion;

@@ -64,16 +64,19 @@ public class TimeInPhase extends Fragment {
         agregaTime=row.findViewById(R.id.plan_edit_text_tiempo);
         botonTiempo=row.findViewById(R.id.plan_guarda_tiepo);
 
-        if(catidadTotal==0){
-            layoutTiempo.getLayoutParams().height=500;
-            agregaTime();
-        }else{
-            layoutTiempo.getLayoutParams().height=0;
-            adapterContenido();
+
+        if (getActivity()!=null && isAdded()) {
+            if (catidadTotal == 0) {
+                layoutTiempo.getLayoutParams().height =getActivity().getResources().getDisplayMetrics().heightPixels;
+                agregaTime();
+            } else {
+                layoutTiempo.getLayoutParams().height = 0;
+                adapterContenido();
+            }
         }
 
 
-        if (getActivity()!=null && isAdded())adapterContenido();
+
 
 
         return row;
@@ -83,14 +86,16 @@ public class TimeInPhase extends Fragment {
             @Override
             public void onClick(View v) {
                 catidadTotal=0;
-                if (agregaTime.getText().toString().equalsIgnoreCase(""))
+                if (!agregaTime.getText().toString().equalsIgnoreCase(""))
                     catidadTotal=Integer.parseInt(agregaTime.getText().toString());
-                if (catidadTotal>0) {
+
+                if (catidadTotal==0) {
+                    Toast.makeText(getActivity(), "Agrega tiempo para mostrar informacion", Toast.LENGTH_SHORT).show();
+                }else{
                     DataBaseTSP db = new DataBaseTSP(getActivity());
                     db.tablaProyectos(DataBaseTSP.ACTUALIZAR_PROYECTO, idProyecto, null,catidadTotal);
-                    cargarInfomacion();
-                }else{
-                    Toast.makeText(getActivity(), "Agrega tiempo para mostrar informacion", Toast.LENGTH_SHORT).show();
+                    adapterContenido();
+
                 }
             }
         });

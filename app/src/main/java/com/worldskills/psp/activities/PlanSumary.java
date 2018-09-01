@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -25,6 +26,7 @@ public class PlanSumary extends AppCompatActivity {
 
     private int cantidad, idProyecto;
     public static final String KEYTIEMPOTOTAL="KEYTIEMPO";
+    private ImageButton botonAtras;
 
 
     @Override
@@ -36,6 +38,13 @@ public class PlanSumary extends AppCompatActivity {
         if (datos!=null){
             idProyecto=datos.getInt(Home.KEYID);
         }
+
+        botonAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         cantidad=0;
 
