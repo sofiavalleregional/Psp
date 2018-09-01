@@ -62,5 +62,9 @@ public class Home extends AppCompatActivity {
 
     }
 
+    public void menuFuncioens(View v){
+
+    }
+
 
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <stroke android:color="@color/azul_verde_3" android:width="1dp"/>
+    <corners android:radius="@dimen/radio_menu_funciones_bton"/>
+    <solid android:color="@android:color/transparent"/>
+
+</shape>
